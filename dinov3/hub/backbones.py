@@ -64,7 +64,7 @@ def _make_dinov3_vit(
     *,
     img_size: int = 224,
     patch_size: int = 16,
-    in_chans: int = 3,
+    in_chans: int = 4,
     compact_arch_name: str = "vitb",
     pos_embed_rope_base: float = 100.0,
     pos_embed_rope_min_period: float | None = None,
@@ -160,7 +160,7 @@ def _make_dinov3_convnext_model_url(
 
 
 def _make_dinov3_convnext(
-    in_chans: int = 3,
+    in_chans: int = 4,
     depths: List[int] = [3, 3, 27, 3],
     dims: List[int] = [128, 256, 512, 1024],
     compact_arch_name: str = "convnext_base",
@@ -211,7 +211,7 @@ def dinov3_vits16(
     return _make_dinov3_vit(
         img_size=224,
         patch_size=16,
-        in_chans=3,
+        in_chans=4,
         pos_embed_rope_base=100,
         pos_embed_rope_normalize_coords="separate",
         pos_embed_rope_rescale_coords=2,
@@ -250,7 +250,7 @@ def dinov3_vits16plus(
     return _make_dinov3_vit(
         img_size=224,
         patch_size=16,
-        in_chans=3,
+        in_chans=4,
         pos_embed_rope_base=100,
         pos_embed_rope_normalize_coords="separate",
         pos_embed_rope_rescale_coords=2,
@@ -289,7 +289,7 @@ def dinov3_vitb16(
     return _make_dinov3_vit(
         img_size=224,
         patch_size=16,
-        in_chans=3,
+        in_chans=4,
         pos_embed_rope_base=100,
         pos_embed_rope_normalize_coords="separate",
         pos_embed_rope_rescale_coords=2,
@@ -344,7 +344,7 @@ def dinov3_vitl16(
     return _make_dinov3_vit(
         img_size=224,
         patch_size=16,
-        in_chans=3,
+        in_chans=4,
         pos_embed_rope_base=100,
         pos_embed_rope_normalize_coords="separate",
         pos_embed_rope_rescale_coords=2,
@@ -384,7 +384,7 @@ def dinov3_vitl16plus(
     return _make_dinov3_vit(
         img_size=224,
         patch_size=16,
-        in_chans=3,
+        in_chans=4,
         pos_embed_rope_base=100,
         pos_embed_rope_normalize_coords="separate",
         pos_embed_rope_rescale_coords=2,
@@ -423,7 +423,7 @@ def dinov3_vith16plus(
     return _make_dinov3_vit(
         img_size=224,
         patch_size=16,
-        in_chans=3,
+        in_chans=4,
         pos_embed_rope_base=100,
         pos_embed_rope_normalize_coords="separate",
         pos_embed_rope_rescale_coords=2,
@@ -467,7 +467,7 @@ def dinov3_vit7b16(
     return _make_dinov3_vit(
         img_size=224,
         patch_size=16,
-        in_chans=3,
+        in_chans=4,
         pos_embed_rope_base=100,
         pos_embed_rope_normalize_coords="separate",
         pos_embed_rope_rescale_coords=2,
@@ -509,7 +509,7 @@ def dinov3_convnext_tiny(
     size_dict = convnext_sizes["tiny"]
 
     model = _make_dinov3_convnext(
-        in_chans=3,
+        in_chans=4,
         depths=size_dict["depths"],
         dims=size_dict["dims"],
         compact_arch_name="convnext_tiny",
@@ -539,7 +539,7 @@ def dinov3_convnext_small(
     size_dict = convnext_sizes["small"]
 
     model = _make_dinov3_convnext(
-        in_chans=3,
+        in_chans=4,
         depths=size_dict["depths"],
         dims=size_dict["dims"],
         compact_arch_name="convnext_small",
@@ -569,7 +569,7 @@ def dinov3_convnext_base(
     size_dict = convnext_sizes["base"]
 
     model = _make_dinov3_convnext(
-        in_chans=3,
+        in_chans=4,
         depths=size_dict["depths"],
         dims=size_dict["dims"],
         compact_arch_name="convnext_base",
@@ -599,7 +599,7 @@ def dinov3_convnext_large(
     size_dict = convnext_sizes["large"]
 
     model = _make_dinov3_convnext(
-        in_chans=3,
+        in_chans=4,
         depths=size_dict["depths"],
         dims=size_dict["dims"],
         compact_arch_name="convnext_large",

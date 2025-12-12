@@ -138,7 +138,7 @@ class ConvNeXt(nn.Module):
     def __init__(
         self,
         # original ConvNeXt arguments
-        in_chans: int = 3,
+        in_chans: int = 4,
         depths: List[int] = [3, 3, 9, 3],
         dims: List[int] = [96, 192, 384, 768],
         drop_path_rate: float = 0.0,

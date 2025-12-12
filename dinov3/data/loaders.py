@@ -12,7 +12,7 @@ from torch.utils.data import Sampler
 
 from .datasets import ADE20K, CocoCaptions, ImageNet, ImageNet22k, NYU
 from .samplers import EpochSampler, InfiniteSampler, ShardedInfiniteSampler
-
+from src.data_loading.custom_data_loading import SwissImageDataset
 logger = logging.getLogger("dinov3")
 
 
@@ -60,6 +60,15 @@ def _parse_dataset_str(dataset_str: str):
             kwargs["split"] = ImageNet.Split[kwargs["split"]]
     elif name == "ImageNet22k":
         class_ = ImageNet22k
+    elif name == "SwissIMAGE":
+        class_ = SwissImageDataset
+        if "path" not in kwargs:
+             raise ValueError('SwissIMAGE dataset requires a "path=<folder>" argument.')
+        # We rename the 'path' argument to 'root' if your custom dataset uses 'root' for consistency
+        kwargs["root"] = kwargs.pop("path")
+        kwargs.pop("extra", None)
+        kwargs.pop("split", None)
+        logger.info(f'Loaded custom SwissIMAGE dataset from root: {kwargs["root"]}')
     elif name == "ADE20K":
         class_ = ADE20K
         if "split" in kwargs:
